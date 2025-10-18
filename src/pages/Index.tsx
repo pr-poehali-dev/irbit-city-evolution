@@ -30,39 +30,6 @@ const historicalPeriods = [
   }
 ];
 
-const galleryImages = [
-  {
-    url: 'https://cdn.poehali.dev/projects/92007331-e9e9-4b6f-b047-ed0a7f448150/files/724cbd69-d10c-413a-acd0-6baf5efe9e25.jpg',
-    title: 'Улицы старого Ирбита',
-    year: '1890-е'
-  },
-  {
-    url: 'https://cdn.poehali.dev/projects/92007331-e9e9-4b6f-b047-ed0a7f448150/files/3101e3ac-0c59-4bf3-8b72-80434a8c151b.jpg',
-    title: 'Торговая площадь',
-    year: '1905'
-  },
-  {
-    url: 'https://cdn.poehali.dev/projects/92007331-e9e9-4b6f-b047-ed0a7f448150/files/0d5f24d3-4e16-47c7-a9f4-e6e83e958073.jpg',
-    title: 'Промышленные кварталы',
-    year: '1910-е'
-  },
-  {
-    url: 'https://cdn.poehali.dev/projects/92007331-e9e9-4b6f-b047-ed0a7f448150/files/724cbd69-d10c-413a-acd0-6baf5efe9e25.jpg',
-    title: 'Ярмарочный день',
-    year: '1880-е'
-  },
-  {
-    url: 'https://cdn.poehali.dev/projects/92007331-e9e9-4b6f-b047-ed0a7f448150/files/3101e3ac-0c59-4bf3-8b72-80434a8c151b.jpg',
-    title: 'Городская застройка',
-    year: '1895'
-  },
-  {
-    url: 'https://cdn.poehali.dev/projects/92007331-e9e9-4b6f-b047-ed0a7f448150/files/0d5f24d3-4e16-47c7-a9f4-e6e83e958073.jpg',
-    title: 'Железнодорожная станция',
-    year: '1915'
-  }
-];
-
 const historicalPlaces = [
   {
     id: 1,
@@ -125,7 +92,7 @@ export default function Index() {
 
       <main className="container mx-auto px-4 py-12">
         <Tabs defaultValue="timeline" className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-14">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 h-14">
             <TabsTrigger value="timeline" className="text-lg">
               <Icon name="Clock" className="mr-2" size={20} />
               Главная
@@ -133,10 +100,6 @@ export default function Index() {
             <TabsTrigger value="map" className="text-lg">
               <Icon name="MapPin" className="mr-2" size={20} />
               Карта
-            </TabsTrigger>
-            <TabsTrigger value="gallery" className="text-lg">
-              <Icon name="Image" className="mr-2" size={20} />
-              Фотогалерея
             </TabsTrigger>
           </TabsList>
 
@@ -294,42 +257,6 @@ export default function Index() {
                   ))}
                 </div>
               </div>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="gallery" className="animate-fade-in">
-            <div className="max-w-4xl mx-auto mb-12">
-              <h2 className="text-4xl font-bold text-center mb-4 text-foreground">
-                Фотоархив
-              </h2>
-              <p className="text-center text-muted-foreground text-lg">
-                Уникальные снимки Ирбита XIX-XX веков
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {galleryImages.map((image, index) => (
-                <Card
-                  key={index}
-                  className="photo-border sepia-filter overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <img
-                    src={image.url}
-                    alt={image.title}
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="p-4 bg-card/90">
-                    <h3 className="font-bold text-lg mb-1 text-foreground">
-                      {image.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground flex items-center gap-2">
-                      <Icon name="Calendar" size={16} />
-                      {image.year}
-                    </p>
-                  </div>
-                </Card>
-              ))}
             </div>
           </TabsContent>
         </Tabs>
